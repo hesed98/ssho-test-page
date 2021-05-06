@@ -94,37 +94,16 @@ export default function Questions() {
                 
             ],
         },
-        {
-            questionText: '평소 제로웨이스트, 친환경 소비 등 환경문제에 관심이 있는 편이다.',
-            answerOptions: [
-                { answerText: '그렇다.', isCorrect: true },
-                { answerText: '아니다.', isCorrect: false },
-                
-            ],
-        },
-        {
-            questionText: '배달 음식을 주문하려는데, ‘친환경 포장재 사용’ 옵션을 선택하면 500원이 추가된다고 한다. 당신은 어떤 선택을 할까?',
-            answerOptions: [
-                { answerText: '500원을 더 지불하고 친환경 용기에 담긴 음식을 받는다.', isCorrect: true },
-                { answerText: '돈을 더 지불하지 않고 일반 플라스틱 용기에 담긴 음식을 받는다.', isCorrect: false },
-                
-            ],
-        },
-        {
-            questionText: '당신이 당근마켓을 이용해서 옷을 판매하고 있다고 가정해보자. 주된 이유는 무엇일까?',
-            answerOptions: [
-                { answerText: '옷을 버리지 않아서 쓰레기를 줄이게 되는 게 좋다.', isCorrect: true },
-                { answerText: '가격이 제일 중요하다. 입지않는 옷을 돈을 받고 팔 수 있어서 좋다.', isCorrect: false },
-                
-            ],
-        },
+        
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 	const [score_E, setScore_E] = useState(0);
-
+    const [score_S, setScore_S] = useState(0);
+    const [score_F, setScore_F] = useState(0);
+    const [score_P, setScore_P] = useState(0);
 	const [questionAnswers, setQuestionAnswers] = useState([]);
 
 
@@ -132,30 +111,79 @@ export default function Questions() {
 		
 		setQuestionAnswers([...questionAnswers, isCorrect]);
 
-		let nextQuestion = currentQuestion + 1;
+		const nextQuestion = currentQuestion + 1;
 		
-		(questions.length + 1 > nextQuestion) ? setCurrentQuestion(nextQuestion) : handleResult();
-		
+		(nextQuestion < questions.length) ? setCurrentQuestion(nextQuestion) : handleResult();
+        
+       
+      
 	}
 
 	const handleResult = () => {
-		check_E();
-		setShowScore(true)
+        console.log(questions.length)
+        check_arr();
+		check_all();
+        check_E();
+		check_S();
+        check_F();
+        check_P();
 
-		console.log(questionAnswers.length);
-		for (let i = 0; i < questionAnswers.length; i++) {
-			var temp = questionAnswers[i] ? 1 : 0;
-			console.log(temp);
+		//console.log(questionAnswers.length);
+		//for (let i = 0; i < questionAnswers.length; i++) {
+		//	var temp = questionAnswers[i] ? 1 : 0;
+		//	console.log(temp);
 
-			setScore(score => score + 1);
-		}
+		//	setScore(score => score + 1);
+		//}
 	}
 
+    const check_arr = () => {
+        for (let i = 0; i < questions.length-1; i++) {	
+            console.log(questionAnswers[i]);
+		}
+    }
+
+    const check_all = () => {
+        for (let i = 0; i < questions.length-1; i++) {
+			if(questionAnswers[i]){
+				setScore(score => score + 1);
+			}
+            
+		}
+    }
+
 	const check_E = () => {
+        setShowScore(true);
 		for (let i = 0; i < 3; i++) {
 			if(questionAnswers[i]){
-				console.log(questionAnswers[i]);
 				setScore_E(score_E => score_E + 1);
+			}
+		}
+	};
+
+    const check_S = () => {
+        setShowScore(true);
+		for (let i = 3; i < 6; i++) {
+			if(questionAnswers[i]){
+				setScore_S(score_S => score_S + 1);
+			}
+		}
+	};
+
+    const check_F = () => {
+        setShowScore(true);
+		for (let i = 6; i < 9; i++) {
+			if(questionAnswers[i]){
+				setScore_F(score_F => score_F + 1);
+			}
+		}
+	};
+
+    const check_P = () => {
+        setShowScore(true);
+		for (let i = 9; i < 12; i++) {
+			if(questionAnswers[i]){
+				setScore_P(score_P => score_P + 1);
 			}
 		}
 	};
@@ -171,7 +199,10 @@ export default function Questions() {
             {showScore ? (
                 <div className='score-section'>
                     You scored {score} out of {questionAnswers.length} <br></br>
-					You scored {score_E} in E
+					You scored {score_E} in E <br></br>
+                    You scored {score_S} in S <br></br>
+                    You scored {score_F} in F <br></br>
+                    You scored {score_P} in P <br></br>
                 </div>
             ) : (
                 <>

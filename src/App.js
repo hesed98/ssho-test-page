@@ -10,6 +10,7 @@ import {
 } from './pages';
 
 import Questions from './pages/Questions';
+import Results from './pages/results';
 
 function App({history}) {
   return (
@@ -19,6 +20,7 @@ function App({history}) {
             <Route exact path='/' component={LandingPage} />
             
             <Route path="/questions" component={Questions} />
+            <Route path="/results" component={Results} />
           </Switch>
         </Router>
     </div>

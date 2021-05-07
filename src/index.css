@@ -22,7 +22,7 @@ code {
   z-index: 2;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -65%);
+  transform: translate(-50%, -62%);
 }
 .question-wrap {
   position: absolute;
@@ -182,4 +182,123 @@ button svg {
   margin-right: auto;
   width: 100%;
   top: 30px;
+}
+
+.result_title {
+  padding-top: 53px;
+  color: #e4c9b1;
+}
+
+.result_title h3 {
+  font-size: 24px;
+}
+
+.result_title p {
+  font-size: 18px;
+}
+
+.result_card {
+  width: 90%;
+  max-width: 319px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.background_card {
+  width: 100%;
+  max-width: 319px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.istj_card {
+  width: 80%;
+  max-width: 265px;
+  margin-left: auto;
+  border-radius: 13px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -51.5%);
+}
+
+.result_container {
+  background-color: white;
+  width: 85%;
+  max-width: 300px;
+  border-radius: 13px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.result_description {
+  width: 90%;
+  max-width: 319px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.result_description p {
+  font-family: NotoSansCJKkr, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #2c3262;
+  line-height: 1.7;
+  font-weight: 500;
+}
+h4 {
+  font-family: NotoSansCJKkr, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #2c3262;
+  line-height: 1;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+h5 {
+  font-family: NotoSansCJKkr, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #2c3262;
+  line-height: 1;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.rec_style {
+  margin-bottom: 0px;
+}
+.rec_description {
+  margin-top: 5px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.description_specific {
+  text-align: left;
+}
+
+.button_container {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+.istj_graph {
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.istj_style {
+  width: 100%;
+  border-radius: 21px;
+}
+
+.button {
+  width: 90%;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.result {
+  font-size: 13px;
+  font-weight: bold;
 }
